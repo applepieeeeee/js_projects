@@ -10,10 +10,10 @@ function createWindow() {
             contextIsolation: false,
             enableRemoteModule: true
         },
-        icon: path.join(__dirname, 'assets/icon.ico') // Set custom icon
+        icon: path.join(__dirname, 'assets', 'favicon.ico') // Ensure correct path
     });
 
-    win.loadFile(path.join(__dirname, 'index.html'));
+    win.loadFile('index.html'); // Load your HTML file
 }
 
 app.whenReady().then(() => {
@@ -26,6 +26,7 @@ app.whenReady().then(() => {
     });
 });
 
+// Handle window close on non-macOS
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
