@@ -9,11 +9,11 @@ function createWindow() {
             nodeIntegration: true,
             contextIsolation: false,
             enableRemoteModule: true
-        }
+        },
+        icon: path.join(__dirname, 'assets/icon.ico') // Set custom icon
     });
 
     win.loadFile(path.join(__dirname, 'index.html'));
-
 }
 
 app.whenReady().then(() => {
