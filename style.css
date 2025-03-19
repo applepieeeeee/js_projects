@@ -1,11 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto Mono', monospace;
     text-align: center;
-    margin: 50px;
-    background-color: #282c34;
-    color: white;
+    margin-top: 50px;
+    background-color: #ffccff; /* Light pink background */
+    color: #ff1493; /* Deep pink text */
 }
 
-h1 {
-    color: #61dafb;
+h1, h2, h3 {
+    font-family: 'Roboto Mono', monospace;
+    color: #d100a9; /* Darker pink for headings */
+}
+
+button {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #ff69b4; /* Hot pink button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff1493; /* Deep pink on hover */
 }

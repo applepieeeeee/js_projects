@@ -35,16 +35,3 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 });
-
-function createWindow() {
-    const win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        title: "clock.app", // Change this to whatever you want
-        webPreferences: {
-            nodeIntegration: true
-        }
-    });
-
-    win.loadFile(path.join(__dirname, 'index.html'));
-}
