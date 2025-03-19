@@ -27,10 +27,53 @@
             font-size: 1.2rem;
             color: #c71585; /* Medium pink */
         }
+
+        button {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1rem;
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        #start {
+            background-color: #ff66b2; /* Soft pink */
+            color: white;
+        }
+
+        #start:hover {
+            background-color: #ff3385; /* Darker pink */
+        }
+
+        #stop {
+            background-color: #ff3366; /* Medium-dark pink */
+            color: white;
+        }
+
+        #stop:hover {
+            background-color: #cc0044; /* Darker pink */
+        }
+
+        #reset {
+            background-color: #ff99cc; /* Light pink */
+            color: white;
+        }
+
+        #reset:hover {
+            background-color: #ff66a3; /* Darker light pink */
+        }
     </style>
 </head>
 <body>
-    <p id="clock">Loading time...</p>
+    <h1>Stopwatch</h1>
+    <p id="stopwatch">00:00</p>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
     <script src="clock.js"></script>
 </body>
 </html>

@@ -6,30 +6,26 @@ function createWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true
         }
     });
 
-    // Load the local HTML file
     win.loadFile(path.join(__dirname, 'index.html'));
 
-    // Optional: Open DevTools for debugging
-    // win.webContents.openDevTools();
 }
 
-// Create window when Electron is ready
 app.whenReady().then(() => {
     createWindow();
 
     app.on('activate', () => {
-        // Recreate a window if the app is re-opened (MacOS behavior)
         if (BrowserWindow.getAllWindows().length === 0) {
             createWindow();
         }
     });
 });
 
-// Quit the app when all windows are closed (except on MacOS)
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();

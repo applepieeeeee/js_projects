@@ -1,28 +1,34 @@
-let currentTime = null;
+let stopwatchTime = 0;
+let stopwatchInterval = null;
 
-async function fetchTime() {
-    try {
-        const response = await fetch('https://worldtimeapi.org/api/timezone/Etc/UTC'); // Use HTTPS
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-
-        const data = await response.json();
-        if (!data.datetime) throw new Error("Invalid API response");
-
-        currentTime = new Date(data.datetime);
-    } catch (error) {
-        console.error('Error fetching time:', error);
-        document.getElementById('clock').innerHTML = '<strong>Current Time:</strong> Error fetching time';
+function startStopwatch() {
+    if (!stopwatchInterval) {
+        stopwatchInterval = setInterval(() => {
+            stopwatchTime++;
+            updateStopwatchDisplay();
+        }, 1000);
     }
 }
 
-function updateClock() {
-    if (currentTime) {
-        currentTime.setSeconds(currentTime.getSeconds() + 1);
-        document.getElementById('clock').innerHTML = `<strong>Current Time:</strong> ${currentTime.toLocaleTimeString()}`;
-    }
+function stopStopwatch() {
+    clearInterval(stopwatchInterval);
+    stopwatchInterval = null;
 }
 
-fetchTime();
-setInterval(fetchTime, 60000);
+function resetStopwatch() {
+    stopStopwatch();
+    stopwatchTime = 0;
+    updateStopwatchDisplay();
+}
 
-setInterval(updateClock, 1000);
+function updateStopwatchDisplay() {
+    const minutes = Math.floor(stopwatchTime / 60).toString().padStart(2, '0');
+    const seconds = (stopwatchTime % 60).toString().padStart(2, '0');
+    document.getElementById('stopwatch').innerHTML = `<strong>Stopwatch:</strong> ${minutes}:${seconds}`;
+}
+
+document.getElementById('start').addEventListener('click', startStopwatch);
+document.getElementById('stop').addEventListener('click', stopStopwatch);
+document.getElementById('reset').addEventListener('click', resetStopwatch);
+
+updateStopwatchDisplay();
