@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Electron App</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Import the Roboto Mono font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #ffe6f2; /* Soft pink background */
+            color: #d100a9; /* Dark pink text */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff0080; /* Brighter pink */
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #c71585; /* Medium pink */
+        }
+    </style>
 </head>
 <body>
-    <h1>electron app test</h1>
-    <p>yay?</p>
+    <p id="clock">Loading time...</p>
+    <script src="clock.js"></script>
 </body>
 </html>
